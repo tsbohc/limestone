@@ -15,28 +15,30 @@ local lush = require('lush')
 local hsl = lush.hsl
 
 -- 240h purple and 190h green
+-- light mode?!
 
 local italic = "italic"
 local bold = "bold"
 local underline = "underline"
 
 -- background
-local base00 = hsl(240, 1, 16) -- default background
+local base00 = hsl(240, 3, 14) -- default background
+--local base00 = hsl(210, 5, 12) -- default background
 local base01 = hsl(240, 1, 18) -- line highlighting background
 local base02 = hsl(240, 1, 20) -- selection background
 
 -- foreground
-local base10 = hsl(8,   8, 89)   -- functions
-local base11 = hsl(240, 5, 67)   -- default foreground, variables, dot-delimiter
+local base10 = hsl(8,   8, 88)   -- functions
+local base11 = hsl(240, 4, 70)   -- default foreground, variables, dot-delimiter
+local base13 = hsl(23,  2, 58)   -- strings, string constants
 local base12 = hsl(240, 5, 46)   -- keywords, folds
-local base13 = hsl(30,  0, 60)   -- strings, string constants
 local base14 = hsl(230, 7, 30)   -- parens
 
-local base21 = hsl(227, 4, 30) -- comments
+local base21 = hsl(227, 3, 30) -- comments
 local base20 = hsl(230, 4, 25) -- invisibles
 
-local base0I = hsl(209, 40,  72) -- info
-local base0W = hsl(285, 30,  76) -- warning
+local base0I = hsl(209, 40,  75) -- info
+local base0W = hsl(285, 30,  77) -- warning
 
 --local base06 = hsl() -- Light Foreground (Not often used)
 --local base07 = hsl() -- Light Background (Not often used)
@@ -51,7 +53,30 @@ local base0W = hsl(285, 30,  76) -- warning
 
 local theme = lush(function()
   return {
-    Comment      { fg = base21 }, -- any comment
+    X { lush = {
+        background = base00,
+        foreground = base11,
+        color0 = base00,
+        color1 = hsl(345, 53,  77),
+        color2 = hsl(140, 25,  73),
+        color3 = hsl(40,  49,  73),
+        color4 = hsl(209, 40,  72),
+        color5 = hsl(285, 30,  76),
+        color6 = hsl(175, 36,  72),
+        color7 = base11,
+        color8 = base11,
+        color9 = hsl(345, 53,  77),
+        color10 = hsl(140, 25,  73),
+        color11 = hsl(40,  49,  73),
+        color12 = hsl(209, 40,  72),
+        color13 = hsl(285, 30,  76),
+        color14 = hsl(175, 36,  72),
+        color15 = base11,
+      }
+    },
+
+
+    Comment      { fg = base21, gui = italic }, -- any comment
     ColorColumn  { bg = base01 }, -- used for the columns set with 'colorcolumn'
     Conceal      { fg = base20 }, -- placeholder characters substituted for concealed text (see 'conceallevel')
     -- Cursor       { }, -- character under the cursor
@@ -65,6 +90,8 @@ local theme = lush(function()
     DiffChange   { fg = base12 }, -- diff mode: Changed line |diff.txt|
     DiffDelete   { fg = base0W }, -- diff mode: Deleted line |diff.txt|
     DiffText     { }, -- diff mode: Changed text within a changed line |diff.txt|
+    diffRemoved  { DiffDelete },
+    diffAdded    { DiffAdd },
     EndOfBuffer  { fg = base00 }, -- filler lines (~) after the end of the buffer.  By default, this is highlighted like |hl-NonText|.
     -- TermCursor   { }, -- cursor in a focused terminal
     -- TermCursorNC { }, -- cursor in an unfocused terminal
@@ -140,7 +167,9 @@ local theme = lush(function()
     --Macro          { fg = base10 }, --    same as Define
     --PreCondit      { fg = base10 }, --  preprocessor #if, #else, #endif, etc.
 
-    -- Type           { }, -- (preferred) int, long, char, etc.
+    packerOutput { fg = base10 },
+
+    Type           { fg = base12 }, -- (preferred) int, long, char, etc.
     -- StorageClass   { }, -- static, register, volatile, etc.
     -- Structure      { }, --  struct, union, enum, etc.
     -- Typedef        { }, --  A typedef
@@ -149,6 +178,7 @@ local theme = lush(function()
     -- SpecialChar    { }, --  special character in a constant
     -- Tag            { }, --    you can use CTRL-] on this
     Delimiter      { fg = base11 }, --  character that needs attention
+    luaTable       { fg = base12 }, -- !!!
     -- SpecialComment { }, -- special things inside a comment
     -- Debug          { }, --    debugging statements
 
@@ -221,7 +251,7 @@ local theme = lush(function()
     -- TSFuncMacro          { };    -- For macro defined fuctions (calls and definitions): each `macro_rules` in Rust.
     -- TSInclude            { };    -- For includes: `#include` in C, `use` or `extern crate` in Rust, or `require` in Lua.
     TSKeyword            { fg = base12, gui = italic };    -- For keywords that don't fall in previous categories.
-    -- TSKeywordFunction    { };    -- For keywords used to define a fuction.
+    TSKeywordFunction    { fg = base12, gui = italic };    -- For keywords used to define a fuction.
     -- TSLabel              { };    -- For labels: `label:` in C and `:label:` in Lua.
     -- TSMethod             { };    -- For method calls and definitions.
     -- TSNamespace          { };    -- For identifiers referring to modules and namespaces.
