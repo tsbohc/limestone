@@ -29,13 +29,12 @@ local base02 = hsl(240, 4, 20) -- selection background
 
 -- foreground
 local base10 = hsl(8,   8, 88)   -- functions
-local base10 = hsl(33, 28, 94)   -- functions
 local base11 = hsl(240, 4, 69)   -- default foreground, variables, dot-delimiter
 local base12 = hsl(240, 5, 50)   -- keywords, folds
 local base14 = hsl(230, 7, 30)   -- parens
 
-local base0G = hsl(33,  5, 70)   -- constants
-local base13 = hsl(16,  2, 57)   -- strings, string constants
+local base0G = hsl(350, 2, 62)   -- constants
+local base13 = hsl(16,  3, 57)   -- strings, string constants
 
 local base21 = hsl(227, 3, 30) -- comments
 local base20 = hsl(230, 4, 25) -- invisibles
@@ -50,34 +49,32 @@ local test = hsl(100, 100, 70)
 
 -- bright
 
----- background
---local base00 = hsl(33, 36, 94) -- default background
---local base00 = hsl(33, 17, 89) -- default background
---local base01 = hsl(33, 16, 85) -- line highlighting background
---local base02 = hsl(33, 14, 82) -- selection background
---
----- foreground
---local base10 = hsl(0,  0,  0)   -- functions
---local base11 = hsl(0,  0, 28)   -- default foreground, variables, dot-delimiter
---local base12 = hsl(0,  0, 48)   -- keywords, folds
---local base14 = hsl(33, 11, 76)   -- parens
---
-----local base14 = hsl(240, 13, 72)   -- parens
-----local base14 = hsl(0, 23, 75)   -- parens
---
-----local base14 = hsl(0, 100, 90)   -- parens
---
---local base0G = hsl(350, 2, 35)   -- constants
---local base13 = hsl(16,  3, 35)   -- strings, string constants
---
---local base21 = hsl(240, 1, 65) -- comments
---local base20 = hsl(33, 11, 76) -- invisibles
---
-----local base0I = hsl(28, 89,  75) -- info
---local base0W = hsl(285, 30,  77)
---local base0I = hsl(209, 50,  75) -- info
---local base0E = hsl(2, 65,  60) -- warning
-----local base0I = hsl(209, 66,  64) -- info
+-- background
+local base00 = hsl(33, 36, 94) -- default background
+local base00 = hsl(33, 17, 89) -- default background
+local base01 = hsl(33, 16, 85) -- line highlighting background
+local base02 = hsl(33, 14, 82) -- selection background
+
+-- foreground
+local base10 = hsl(0,  0,  0)   -- functions
+local base11 = hsl(0,  0, 28)   -- default foreground, variables, dot-delimiter
+local base12 = hsl(0,  0, 48)   -- keywords, folds
+local base14 = hsl(240, 13, 72)   -- parens
+--local base14 = hsl(0, 23, 75)   -- parens
+
+--local base14 = hsl(0, 100, 90)   -- parens
+
+local base0G = hsl(350, 2, 35)   -- constants
+local base13 = hsl(16,  3, 35)   -- strings, string constants
+
+local base21 = hsl(240, 1, 65) -- comments
+local base20 = hsl(33, 11, 76) -- invisibles
+
+--local base0I = hsl(28, 89,  75) -- info
+local base0W = hsl(285, 30,  77)
+local base0I = hsl(209, 50,  75) -- info
+local base0E = hsl(2, 65,  60) -- warning
+--local base0I = hsl(209, 66,  64) -- info
 
 
 --local base06 = hsl() -- Light Foreground (Not often used)
