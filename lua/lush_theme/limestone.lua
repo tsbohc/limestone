@@ -25,19 +25,20 @@ local underline = "underline"
 local base00 = hsluv(266,3,14) -- default background
 local base01 = hsluv(266,4,17) -- line highlighting background
 local base02 = hsluv(266,4,20) -- selection background
-local base03 = hsluv(256,6,30) -- comments
+local base03 = hsluv(256,6,32) -- comments
 local base04 = hsluv(266,6,22) -- invisibles
 -- local base05
 -- local base06
 -- local base07
 local base08 = hsluv(266,4,75) -- default foreground, variables, dot-delimiter
-local base09 = hsluv(266,8,63) -- constants
+--local base09 = hsluv(266,6,65) -- constants
+local base09 = hsluv(266,4,75) -- constants
 -- local base0A
 local base0B = hsluv(36,2,60)  -- strings, string constants
 -- local base0C
 local base0D = hsluv(59,22,95) -- functions
-local base0E = hsluv(266,8,50) -- keywords, folds
-local base0F = hsluv(259,9,30) -- parens
+local base0E = hsluv(266,8,52) -- keywords, folds
+local base0F = hsluv(259,9,32) -- parens
 
 --- extra
 local pppp00 = hsluv(45,73,73)
@@ -129,7 +130,7 @@ local theme = lush(function()
     --  foreground = base08,
     --  color0 = base00,
     --  color1 = hsl(345, 53,  77),
-    --  color2 = hsl(140, 25,  73),
+   --  color2 = hsl(140, 25,  73),
     --  color3 = hsl(40,  49,  73),
     --  color4 = hsl(209, 40,  72),
     --  color5 = hsl(285, 30,  76),
@@ -207,7 +208,7 @@ local theme = lush(function()
     PmenuThumb   { fg = base00 }, -- Popup menu: Thumb of the scrollbar.
     Question     { fg = bbbb99, gui = italic }, -- |hit-enter| prompt and yes/no questions
     -- QuickFixLine { }, -- Current |quickfix| item in the quickfix window. Combined with |hl-CursorLine| when the cursor is there.
-    Search       { bg = base01, fg = bbbb99, gui = "underline" }, -- Last search pattern highlighting (see 'hlsearch').  Also used for similar items that need to stand out.
+    Search       { bg = base01, fg = bbbb99 }, -- Last search pattern highlighting (see 'hlsearch').  Also used for similar items that need to stand out.
     SpecialKey   { fg = base0D }, -- Unprintable characters: 	 text displayed differently from what it really is.  But not 'listchars' whitespace. |hl-Whitespace|
     -- SpellBad     { }, -- Word that is not recognized by the spellchecker. |spell| Combined with the highlighting used otherwise. 
     -- SpellCap     { }, -- Word that should start with a capital. |spell| Combined with the highlighting used otherwise.
@@ -304,8 +305,8 @@ local theme = lush(function()
     LspDiagnosticsUnderlineInformation   { bg = base01 }, -- Used to underline "Information" diagnostics
     LspDiagnosticsUnderlineHint          { bg = base01 }, -- Used to underline "Hint" diagnostics
 
-    -- LspDiagnosticsFloatingError          { }, -- Used to color "Error" diagnostic messages in diagnostics float
-    -- LspDiagnosticsFloatingWarning        { }, -- Used to color "Warning" diagnostic messages in diagnostics float
+    LspDiagnosticsFloatingError          { fg = base03.mix(red000, 30) }, -- Used to color "Error" diagnostic messages in diagnostics float
+    LspDiagnosticsFloatingWarning        { fg = base03.mix(pppp00, 30) }, -- Used to color "Warning" diagnostic messages in diagnostics float
     -- LspDiagnosticsFloatingInformation    { }, -- Used to color "Information" diagnostic messages in diagnostics float
     -- LspDiagnosticsFloatingHint           { }, -- Used to color "Hint" diagnostic messages in diagnostics float
 
